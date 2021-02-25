@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
-import { User } from '../models/user';
 import { UsersRepository } from '../reporitories/user-repository';
 
 class UserController {
@@ -23,7 +22,7 @@ class UserController {
 
     await usersRepository.save(user);
 
-    return response.json(user);
+    return response.status(400).json(user);
   }
 
   async show(request: Request, response: Response) {
